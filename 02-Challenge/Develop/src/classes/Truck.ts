@@ -51,6 +51,7 @@ class Truck extends Vehicle implements AbleToTow {
 
   
     this.towingCapacity = towingCapacity;
+  }
   // TODO: Declare properties of the Truck class
   // TODO: The properties should include vin, color, make, model, year, weight, top speed, wheels, and towing capacity
   // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[]), towingCapacity (number)
@@ -62,22 +63,31 @@ class Truck extends Vehicle implements AbleToTow {
 
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
-    // Get the name of the vehicle
+  
     const name =
-      vehicle.make && Vehicle.model
+      vehicle.make && vehicle.model
         ? `${vehicle.make} ${vehicle.model}`
-        : 'vehicle';
+        : 'Vehicle';
 
+    
     if (vehicle.weight <= this.towingCapacity) {
-      console.log(`${name} is being towed`);
       
+      console.log(`${name} is being towed`);
+    } else {
+     
+      console.log(`${name} is too heavy to be towed`);
+    }
+  }
 
-  // Override the printDetails method from the Vehicle class
+
+
+
+  
   override printDetails(): void {
-    // Call the printDetails method of the parent class, Vehicle
+    
     super.printDetails();
 
-    // Log the details of the Truck class
+    
     console.log(`VIN: ${this.vin}`);
     console.log(`Color: ${this.color}`);
     console.log(`Make: ${this.make}`);
@@ -105,3 +115,7 @@ class Truck extends Vehicle implements AbleToTow {
 
 // Export the Truck class as the default export
 export default Truck;
+function tow(vehicle: any, arg1: number) {
+  throw new Error('Function not implemented.');
+}
+
